@@ -31,7 +31,7 @@ take the array with min size say m // why min so that we can use its entire leng
 how many min elements can be there in left partition from this array -> 0
 max  -> m
 
-low = m and high = m
+low = 0 and high = m
 
 
 

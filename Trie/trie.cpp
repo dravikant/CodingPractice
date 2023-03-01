@@ -46,7 +46,7 @@ class Trie {
             root = new Node();
         }
 
-        void insert(string word) {
+        void insert(string &word) {
             // take a dummy node pointing to root
             Node* node = root;
             //iterate over input string
@@ -65,7 +65,7 @@ class Trie {
             node->setEnd();
         }
 
-        bool search(string word) {
+        bool search(string &word) {
 
             //take a dummy node
             Node* node = root;
@@ -86,7 +86,7 @@ class Trie {
         }
 
         
-        bool startsWith(string word) {
+        bool startsWith(string &word) {
 
             //take a dummy node
             Node* node = root;
