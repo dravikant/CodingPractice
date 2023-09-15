@@ -47,42 +47,69 @@ This makes sure that stack contents are in increasing order
 
 */
 
-#include<bits/stdc++.h>
+#include<vector>
+#include<iostream>
+#include<stack>
 using namespace std;
 
-vector<int> nextgreater(vector<int>&nums){
 
-    int n = nums.size();
-    vector<int> ans;
-    stack<int> s;
 
-    ans.push_back(-1);
-    s.push(nums[n-1]);
 
-    for(int i =n-1;i>=0;i++){
 
-        if(s.top() > nums[i]){
-            ans.push_back(s.top());
-        }
-        else{
+// } Driver Code Ends
+// User Function Template for C++ solution
 
-            while(s.size()!=0 && s.top()<nums[i]){
+class Solution {
+  public:
+    vector<long long> nextLargerElement(vector<long long> &arr, int n){
+        // Your code here
+        vector<long long> ans;
+        
+        stack<long long> s;
+        
+        for(int i=n-1;i>=0;i--){
+            
+            while((!s.empty())&& (s.top()<= arr[i])){
                 s.pop();
             }
-
-            if(s.empty()){
-                ans.push_back(-1);
-            }
-            else {
+            
+            if(!s.empty()){
                 ans.push_back(s.top());
             }
+            else{
+                ans.push_back(-1);
+            }
+            
+            s.push(arr[i]);
         }
-        s.push(nums[i]);
-
+        
+        reverse(ans.begin(),ans.end());
+        return ans;
     }
+};
 
-    //reverse the output
-    reverse(ans.begin(), ans.end());
+//{ Driver Code Starts.
 
-    return ans;
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        
+        int n;
+        cin>>n;
+        vector<long long> arr(n);
+        for(int i=0;i<n;i++)
+            cin>>arr[i];
+        
+        Solution ob;
+        
+        vector <long long> res = ob.nextLargerElement(arr, n);
+        for (long long i : res) cout << i << " ";
+        cout<<endl;
+    }
+	return 0;
 }
+
+// } Driver Code Ends

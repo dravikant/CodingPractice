@@ -1,0 +1,22 @@
+for variable size window
+
+e.g. find max window with sum K
+
+write all 3 conditions
+
+i -- start
+j -- end
+
+while(j< str.length)
+
+        if(sum < K)
+        j++
+
+        if(sum == K)
+        -- update ans
+        again extend window
+        j++
+
+
+        if(sum > K)
+        i++
