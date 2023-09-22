@@ -1,0 +1,24 @@
+
+1. choice   select this object or not
+2. optimal  maximize profit minimize loss
+
+
+f(n)
+
+calling f(n-1) .. f(n-2) etc reduced size input and called again again in recursion tree
+
+Knapsack
+    0/1 
+    subset sum
+    equal sum partition
+    count of subset sum
+    min sub sum diff
+    target sum
+    #subset with given diff
+LIS
+LCS
+kadane
+MatrixChainMult
+Trees
+Grid
+others
