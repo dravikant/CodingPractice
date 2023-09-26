@@ -36,6 +36,7 @@ topdown timed out on submission
 //{ Driver Code Starts
 #include<vector>
 #include<string>
+#include<iostream>
 const int mod=1e9+7;
 using namespace std;
 
@@ -92,6 +93,68 @@ class Solution
             }
         }
         
+
+
+        //debugging
+
+         for(int i=0;i<=n;i++){
+            for(int j=0;j<=m;j++){
+
+                cout<<table[i][j]<<",";
+            }
+            cout<<endl;
+         }
+
+        //print longest common subsequence
+        //start from bottom
+        /*
+        as
+          if(s1[i-1] == s2[j-1]){
+                    table[i][j] = 1+ table[i-1][j-1];
+                }
+                else{
+                    table[i][j] = max(table[i-1][j],table[i][j-1]);
+                }
+
+         see table[i][j] = max(table[i-1][j],table[i][j-1]);
+
+         so move back till we have same value
+
+         once we hit 
+
+          if(s1[i-1] == s2[j-1]){
+                    table[i][j] = 1+ table[i-1][j-1];
+                }
+
+                add it to ans
+        
+        */
+        int i=n,j=m;
+        string ans="";
+        while(i>=1 & j>=1){
+
+            cout<<i<<","<<j<<endl;
+            while(table[i][j]== table[i-1][j]){
+                i--;
+            }
+            cout<<i<<","<<j<<endl;
+            while(table[i][j]== table[i][j-1]){
+                j--;
+            }
+            cout<<i<<","<<j<<endl;
+            if(s1[i-1]==s2[j-1]){
+                ans+=s1[i-1];
+                i--;
+                j--;
+            }
+            cout<<i<<","<<j<<endl;
+            // i=0;
+            
+        }
+        reverse(ans.begin(),ans.end());
+        cout<<ans<<endl;
+
+
         return table[n][m];
     }
     
