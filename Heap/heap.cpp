@@ -51,7 +51,7 @@ class Heap {
         vector<int> heap;
 
         // Helper function to maintain the heap property by swapping nodes
-
+        //this is heapifydown i.e. we make sure everything from bottom till this index everything is in order
         void heapify(int idx) {
 
             // cout<<"heapify called for "<<heap[idx]<<endl;
@@ -87,6 +87,7 @@ class Heap {
         }
 
         // Function to insert an element into the heap .. insert at end
+        //this is heapifyup as we insert at bottom and move it up all the way to its correct position
         void insert(int x){
             heap.push_back(x);
             int idx = heap.size() -1;
